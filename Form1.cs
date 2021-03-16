@@ -10,6 +10,15 @@ namespace Project4
     {
         private string connectionString = "Data Source=(local); integrated security=SSPI; Database=Project6";
 		private SqlConnection connection = new SqlConnection();
+
+        // Introduce decimal variables for manipulation.
+        public decimal ICE_CREAM_FLAVOR_CHOCOLATE = 4.00M;
+        public decimal ICE_CREAM_FLAVOR_VANILLA = 4.00M;
+        public decimal ICE_CREAM_FLAVOR_STRAWBERRY = 4.00M;
+
+        public decimal TOPPING_SPRINKLES = 0.50M;
+        public decimal TOPPING_CHOPPED_NUTS = 1.75M;
+        public decimal TOPPING_CHERRY = 1.00M;
         public Form1()
         {
             InitializeComponent();
@@ -18,6 +27,7 @@ namespace Project4
 				connection.ConnectionString = connectionString;
 				
 				UpdateGrid();
+                UpdatePrices();
 			}
 			catch (Exception exception)
 			{
@@ -99,15 +109,7 @@ namespace Project4
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Introduce decimal variables for manipulation.
-            const decimal ICE_CREAM_FLAVOR_CHOCOLATE = 4.00M;
-            const decimal ICE_CREAM_FLAVOR_VANILLA = 4.00M;
-            const decimal ICE_CREAM_FLAVOR_STRAWBERRY = 4.00M;
-
-            const decimal TOPPING_SPRINKLES = 0.50M;
-            const decimal TOPPING_CHOPPED_NUTS = 1.75M;
-            const decimal TOPPING_CHERRY = 1.00M;
-
+            UpdatePrices();
             decimal totalPrice = 0;
 
             // radioButton & checkBox variable attachment & check.
@@ -179,6 +181,29 @@ namespace Project4
             }
 		}
 
+        private void UpdatePrices()
+        {
+            SqlCommand command = new SqlCommand();
+            command.Connection = connection;
+            command.CommandText = "Select * From Prices Where ID='0'";
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            dataAdapter.SelectCommand = command;
+
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
+            DataTable dt = dataSet.Tables[0];
+
+            ICE_CREAM_FLAVOR_CHOCOLATE = (decimal)dt.Rows[0][0];
+            ICE_CREAM_FLAVOR_VANILLA = (decimal)dt.Rows[0][1];
+            ICE_CREAM_FLAVOR_STRAWBERRY = (decimal)dt.Rows[0][2];
+
+            TOPPING_SPRINKLES = (decimal)dt.Rows[0][3];
+            TOPPING_CHOPPED_NUTS = (decimal)dt.Rows[0][4];
+            TOPPING_CHERRY = (decimal)dt.Rows[0][5];
+    }
+
         private void textBoxAllOrders_TextChanged(object sender, EventArgs e)
         {
 
@@ -208,6 +233,18 @@ namespace Project4
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBoxOrders_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetPricesButton_Click(object sender, EventArgs e)
+        {
+            PricesForm form = new PricesForm();
+
+            form.ShowDialog();
         }
     }
 }

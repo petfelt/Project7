@@ -51,11 +51,15 @@ namespace Project4
             this.labelTotalAllOrders = new System.Windows.Forms.Label();
             this.textBoxAllOrders = new System.Windows.Forms.TextBox();
             this.totalAllOrders = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.MenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.SetPricesButton = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBoxFlavor.SuspendLayout();
             this.groupBoxToppings.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBoxFlavor
@@ -196,7 +200,7 @@ namespace Project4
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.groupBoxFlavor);
             this.groupBox1.Controls.Add(this.groupBoxToppings);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(468, 186);
             this.groupBox1.TabIndex = 7;
@@ -210,6 +214,7 @@ namespace Project4
             this.textBoxOrders.Name = "textBoxOrders";
             this.textBoxOrders.Size = new System.Drawing.Size(154, 107);
             this.textBoxOrders.TabIndex = 9;
+            this.textBoxOrders.TextChanged += new System.EventHandler(this.textBoxOrders_TextChanged);
             // 
             // button2
             // 
@@ -236,7 +241,7 @@ namespace Project4
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.labelTotalPrice);
             this.groupBox2.Controls.Add(this.buttonTotalPrice);
-            this.groupBox2.Location = new System.Drawing.Point(12, 215);
+            this.groupBox2.Location = new System.Drawing.Point(12, 229);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(468, 70);
             this.groupBox2.TabIndex = 8;
@@ -256,7 +261,7 @@ namespace Project4
             this.groupBox3.Controls.Add(this.labelTotalAllOrders);
             this.groupBox3.Controls.Add(this.textBoxAllOrders);
             this.groupBox3.Controls.Add(this.totalAllOrders);
-            this.groupBox3.Location = new System.Drawing.Point(497, 12);
+            this.groupBox3.Location = new System.Drawing.Point(497, 26);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(172, 273);
             this.groupBox3.TabIndex = 9;
@@ -293,18 +298,47 @@ namespace Project4
             this.totalAllOrders.UseVisualStyleBackColor = true;
             this.totalAllOrders.Click += new System.EventHandler(this.totalAllOrders_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuButton});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(689, 24);
+            this.menuStrip1.TabIndex = 10;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // MenuButton
+            // 
+            this.MenuButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SetPricesButton});
+            this.MenuButton.Name = "MenuButton";
+            this.MenuButton.Size = new System.Drawing.Size(50, 20);
+            this.MenuButton.Text = "Menu";
+            // 
+            // SetPricesButton
+            // 
+            this.SetPricesButton.Name = "SetPricesButton";
+            this.SetPricesButton.Size = new System.Drawing.Size(180, 22);
+            this.SetPricesButton.Text = "Set Prices";
+            this.SetPricesButton.Click += new System.EventHandler(this.SetPricesButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 303);
+            this.ClientSize = new System.Drawing.Size(689, 323);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ice Cream Shop";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBoxFlavor.ResumeLayout(false);
@@ -317,7 +351,10 @@ namespace Project4
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -349,6 +386,9 @@ namespace Project4
         private System.Windows.Forms.Label labelTotalAllOrders;
         private System.Windows.Forms.TextBox textBoxAllOrders;
         private System.Windows.Forms.Button totalAllOrders;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem MenuButton;
+        private System.Windows.Forms.ToolStripMenuItem SetPricesButton;
     }
 }
 
