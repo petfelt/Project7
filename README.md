@@ -1,5 +1,5 @@
 # Project7
-Small C# GUI Assignment for CSC2330. Improves on project 5 by adding a database.
+Small C# GUI Assignment for CSC2330. Improves on project 6 by adding user pricing adjustment.
 
 
 
