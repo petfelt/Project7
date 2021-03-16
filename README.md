@@ -1,9 +1,9 @@
-# Project6
+# Project7
 Small C# GUI Assignment for CSC2330. Improves on project 5 by adding a database.
 
 
 
-NOTE:
+## NOTE:
 Requires a local database set up as follows:
 
 
@@ -11,7 +11,7 @@ Requires a local database set up as follows:
 Database Name: Project6
 
 
-1st Table: Orders
+## 1st Table: Orders
 
 Column 1 Name: DateTime
 
@@ -23,7 +23,7 @@ Column 2 Data Type: decimal(18, 2)
 
 No nulls allowed.
 
-2nd Table: Prices
+## 2nd Table: Prices
 
 Column 1 Name: ChocolatePrice
 
@@ -55,7 +55,7 @@ Column 7 Data Type: int
 
 No nulls allowed, except for ID.
 
-!!! Must add an initial data entry to 2nd Table with SQL:
+## !!! Must add an initial data entry to 2nd Table with SQL:
 
 INSERT INTO PRICES (ChocolatePrice, VanillaPrice, StrawberryPrice, SprinklesPrice, ChoppedNutsPrice, CherryPrice, ID) VALUES ('4.00', '4.00', '4.00', '0.50', '1.75', '1.00', '0')
 
